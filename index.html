@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paper&Co - канцтовары для учебы, офиса и творчества</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#top" aria-label="Paper&Co">
+      <span class="logo-mark">P</span>
+      <span>Paper&Co</span>
+    </a>
+
+    <label class="header-search" aria-label="Поиск по товарам">
+      <span>Поиск</span>
+      <input id="searchInput" type="search" placeholder="Ручки, тетради, бумага...">
+    </label>
+
+    <nav class="nav-links" aria-label="Основная навигация">
+      <a href="#categories">Категории</a>
+      <a href="#catalog">Каталог</a>
+      <a href="#benefits">Доставка</a>
+    </nav>
+
+    <button class="cart-button" id="openCart" type="button">
+      <span>Корзина</span>
+      <strong id="cartCount">0</strong>
+    </button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">Канцтовары для школы, офиса и творчества</p>
+        <h1>Paper&Co</h1>
+        <p class="hero-text">
+          Соберите рабочий стол, школьный рюкзак или творческий набор в одном месте:
+          аккуратные товары, честные цены и быстрая доставка по городу.
+        </p>
+        <div class="hero-actions">
+          <a class="primary-link" href="#catalog">Перейти в каталог</a>
+          <a class="secondary-link" href="#sets">Смотреть наборы</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Витрина канцелярских товаров">
+        <div class="desk-sheet">
+          <span class="sheet-line wide"></span>
+          <span class="sheet-line"></span>
+          <span class="sheet-line short"></span>
+        </div>
+        <div class="pencil pencil-blue"></div>
+        <div class="pencil pencil-green"></div>
+        <div class="note-card">
+          <strong>-15%</strong>
+          <span>на школьные наборы</span>
+        </div>
+        <div class="paper-stack"></div>
+      </div>
+    </section>
+
+    <section class="section" id="categories">
+      <div class="section-heading">
+        <p class="eyebrow">Быстрый выбор</p>
+        <h2>Популярные категории</h2>
+      </div>
+      <div class="category-grid" id="categoryGrid"></div>
+    </section>
+
+    <section class="section catalog-section" id="catalog">
+      <div class="section-heading catalog-heading">
+        <div>
+          <p class="eyebrow">Каталог</p>
+          <h2>Товары в наличии</h2>
+        </div>
+        <p id="resultInfo" class="result-info"></p>
+      </div>
+
+      <div class="shop-layout">
+        <aside class="filters" aria-label="Фильтры каталога">
+          <h3>Фильтр</h3>
+          <div class="filter-group" id="filterButtons"></div>
+        </aside>
+
+        <div class="product-grid" id="productGrid"></div>
+      </div>
+    </section>
+
+    <section class="section sets-band" id="sets">
+      <div>
+        <p class="eyebrow">Готовые решения</p>
+        <h2>Наборы для старта без лишней суеты</h2>
+      </div>
+      <div class="set-list">
+        <article>
+          <span>Школа</span>
+          <strong>Базовый набор ученика</strong>
+          <p>Тетради, ручки, карандаши, маркеры и папка для документов.</p>
+        </article>
+        <article>
+          <span>Офис</span>
+          <strong>Рабочий стол</strong>
+          <p>Бумага, стикеры, маркеры, органайзер и надежные ручки.</p>
+        </article>
+        <article>
+          <span>Творчество</span>
+          <strong>Цветной комплект</strong>
+          <p>Скетчбук, кисти, линеры и мягкие цветные карандаши.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section benefits" id="benefits">
+      <article>
+        <span>24ч</span>
+        <h3>Быстрая доставка</h3>
+        <p>Привезем заказ по городу на следующий день или подготовим самовывоз.</p>
+      </article>
+      <article>
+        <span>300+</span>
+        <h3>Для школы и офиса</h3>
+        <p>Подберем товары под учебу, работу, документы и ежедневные задачи.</p>
+      </article>
+      <article>
+        <span>-15%</span>
+        <h3>Выгодные наборы</h3>
+        <p>Готовые комплекты дешевле, чем покупать каждую позицию отдельно.</p>
+      </article>
+    </section>
+  </main>
+
+  <aside class="cart-panel" id="cartPanel" aria-label="Корзина" aria-hidden="true">
+    <div class="cart-overlay" id="closeCartOverlay"></div>
+    <div class="cart-drawer">
+      <div class="cart-top">
+        <div>
+          <p class="eyebrow">Ваш заказ</p>
+          <h2>Корзина</h2>
+        </div>
+        <button class="icon-button" id="closeCart" type="button" aria-label="Закрыть корзину">x</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-empty" id="cartEmpty">
+        <strong>Корзина пока пустая</strong>
+        <span>Добавьте товары из каталога, чтобы увидеть итог.</span>
+      </div>
+      <div class="cart-summary">
+        <div>
+          <span>Итого</span>
+          <strong id="cartTotal">0 ₽</strong>
+        </div>
+        <button class="checkout-button" id="checkoutButton" type="button">Оформить заказ</button>
+      </div>
+    </div>
+  </aside>
+
+  <footer class="footer">
+    <div>
+      <a class="logo footer-logo" href="#top">
+        <span class="logo-mark">P</span>
+        <span>Paper&Co</span>
+      </a>
+      <p>Канцелярские товары для учебы, офиса и творчества.</p>
+    </div>
+    <div>
+      <strong>Контакты</strong>
+      <a href="tel:+77000000000">+7 700 000 00 00</a>
+      <a href="mailto:hello@paperco.local">hello@paperco.local</a>
+    </div>
+    <div>
+      <strong>Покупателям</strong>
+      <a href="#catalog">Каталог</a>
+      <a href="#benefits">Доставка</a>
+      <a href="#sets">Наборы</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
